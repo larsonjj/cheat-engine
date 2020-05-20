@@ -28,8 +28,8 @@
       <StringTable CompanyName="Cheat Engine" FileDescription="Cheat Engine" ProductVersion="7.1"/>
     </VersionInfo>
     <BuildModes Count="10">
-      <Item1 Name="Release 32-Bit" Default="True"/>
-      <Item2 Name="Release 64-Bit">
+      <Item1 Name="Release 32-Bit"/>
+      <Item2 Name="Release 64-Bit" Default="True">
         <CompilerOptions>
           <Version Value="11"/>
           <PathDelim Value="\"/>
