@@ -28,27 +28,25 @@ rm Cheat\ Engine/images/celogo.png Cheat\ Engine/cheatengine.ico
 # Step 3: Rename all files with variations of strings
 echo "Converting file names"
 find . -name "Cheat Engine Icons" -exec rename 's|Cheat Engine Icons|WeatherIcons|' {} +
-find . -name "Cheat Engine*" -exec rename 's|Cheat Engine|Weather|' {} +
+find . -type d -name "Cheat Engine" -exec rename 's|Cheat Engine|Weather|' {} +
+find . -type f -name "Cheat Engine.*" -exec rename 's|Cheat Engine|Weather|' {} +
 find . -name "CheatEngine*" -exec rename 's|CheatEngine|Weather|' {} +
-find . -name "Cheat engine*" -exec rename 's|Cheat engine|weather|' {} +
 find . -name "cheat engine*" -exec rename 's|cheat engine|weather|' {} +
-find . -name "cheat Engine*" -exec rename 's|cheat Engine|weather|' {} +
 find . -name "cheatengine*" -exec rename 's|cheatengine|weather|' {} +
-find . -name "cheatEngine*" -exec rename 's|cheatEngine|weather|' {} +
 
 # Step 4: Replace all variations of strings
 echo "Converting file content"
-find . -type f -print0 | xargs -0 perl -pi -e 's/CHEATENGINE/WEATHER/g'
-find . -type f -print0 | xargs -0 perl -pi -e 's/Cheat\ Engine/Weather/g'
-find . -type f -print0 | xargs -0 perl -pi -e 's/CheatEngine/Weather/g'
-find . -type f -print0 | xargs -0 perl -pi -e 's/Cheat\ engine/Weather/g'
-find . -type f -print0 | xargs -0 perl -pi -e 's/Cheatengine/Weather/g'
-find . -type f -print0 | xargs -0 perl -pi -e 's/cheat\ engine/weather/g'
-find . -type f -print0 | xargs -0 perl -pi -e 's/cheat\ Engine/weather/g'
-find . -type f -print0 | xargs -0 perl -pi -e 's/cheatengine/weather/g'
-find . -type f -print0 | xargs -0 perl -pi -e 's/cheatEngine/weather/g'
-find . -type f -print0 | xargs -0 perl -pi -e 's/celogo/weatherlogo/g'
-find . -type f -print0 | xargs -0 perl -pi -e 's/Weather\ 7.1/Weather/g'
+# find . -type f -print0 | xargs -0 perl -pi -e 's/CHEATENGINE/WEATHER/g'
+find . -type f \( -name "*.pas" -or -name "*.asm" -or -name "*.txt" -or -name "*.md" -or -name "*.lpi" -or -name "*.lrs" -or -name "*.dof" -or -name "*.lrt" -or -name "*.lfm" -or -name "*.lpr" -or -name "*.bat" -or -name "*.dpr" -or -name "*.lua" -or -name "*.po" -or -name "*.inf" -or -name "*.vcxproj" -or -name "*.c" -or -name "*.cs" -or -name "*.cpp" -or -name "*.dfm" -or -name "*.vcproj" -or -name "*.h" \) -print0 | xargs -0 perl -pi -e 's/Cheat\ Engine/Weather/g'
+find . -type f \( -name "*.pas" -or -name "*.asm" -or -name "*.txt" -or -name "*.md" -or -name "*.lpi" -or -name "*.lrs" -or -name "*.dof" -or -name "*.lrt" -or -name "*.lfm" -or -name "*.lpr" -or -name "*.bat" -or -name "*.dpr" -or -name "*.lua" -or -name "*.po" -or -name "*.inf" -or -name "*.vcxproj" -or -name "*.c" -or -name "*.cs" -or -name "*.cpp" -or -name "*.dfm" -or -name "*.vcproj" -or -name "*.h" \) -print0 | xargs -0 perl -pi -e 's/CheatEngine/Weather/g'
+find . -type f \( -name "*.pas" -or -name "*.asm" -or -name "*.txt" -or -name "*.md" -or -name "*.lpi" -or -name "*.lrs" -or -name "*.dof" -or -name "*.lrt" -or -name "*.lfm" -or -name "*.lpr" -or -name "*.bat" -or -name "*.dpr" -or -name "*.lua" -or -name "*.po" -or -name "*.inf" -or -name "*.vcxproj" -or -name "*.c" -or -name "*.cs" -or -name "*.cpp" -or -name "*.dfm" -or -name "*.vcproj" -or -name "*.h" \) -print0 | xargs -0 perl -pi -e 's/Cheat\ engine/Weather/g'
+find . -type f \( -name "*.pas" -or -name "*.asm" -or -name "*.txt" -or -name "*.md" -or -name "*.lpi" -or -name "*.lrs" -or -name "*.dof" -or -name "*.lrt" -or -name "*.lfm" -or -name "*.lpr" -or -name "*.bat" -or -name "*.dpr" -or -name "*.lua" -or -name "*.po" -or -name "*.inf" -or -name "*.vcxproj" -or -name "*.c" -or -name "*.cs" -or -name "*.cpp" -or -name "*.dfm" -or -name "*.vcproj" -or -name "*.h" \) -print0 | xargs -0 perl -pi -e 's/Cheatengine/Weather/g'
+find . -type f \( -name "*.pas" -or -name "*.asm" -or -name "*.txt" -or -name "*.md" -or -name "*.lpi" -or -name "*.lrs" -or -name "*.dof" -or -name "*.lrt" -or -name "*.lfm" -or -name "*.lpr" -or -name "*.bat" -or -name "*.dpr" -or -name "*.lua" -or -name "*.po" -or -name "*.inf" -or -name "*.vcxproj" -or -name "*.c" -or -name "*.cs" -or -name "*.cpp" -or -name "*.dfm" -or -name "*.vcproj" -or -name "*.h" \) -print0 | xargs -0 perl -pi -e 's/cheat\ engine/weather/g'
+find . -type f \( -name "*.pas" -or -name "*.asm" -or -name "*.txt" -or -name "*.md" -or -name "*.lpi" -or -name "*.lrs" -or -name "*.dof" -or -name "*.lrt" -or -name "*.lfm" -or -name "*.lpr" -or -name "*.bat" -or -name "*.dpr" -or -name "*.lua" -or -name "*.po" -or -name "*.inf" -or -name "*.vcxproj" -or -name "*.c" -or -name "*.cs" -or -name "*.cpp" -or -name "*.dfm" -or -name "*.vcproj" -or -name "*.h" \) -print0 | xargs -0 perl -pi -e 's/cheat\ Engine/weather/g'
+find . -type f \( -name "*.pas" -or -name "*.asm" -or -name "*.txt" -or -name "*.md" -or -name "*.lpi" -or -name "*.lrs" -or -name "*.dof" -or -name "*.lrt" -or -name "*.lfm" -or -name "*.lpr" -or -name "*.bat" -or -name "*.dpr" -or -name "*.lua" -or -name "*.po" -or -name "*.inf" -or -name "*.vcxproj" -or -name "*.c" -or -name "*.cs" -or -name "*.cpp" -or -name "*.dfm" -or -name "*.vcproj" -or -name "*.h" \) -print0 | xargs -0 perl -pi -e 's/cheatEngine/weather/g'
+find . -type f \( -name "*.pas" -or -name "*.asm" -or -name "*.txt" -or -name "*.md" -or -name "*.lpi" -or -name "*.lrs" -or -name "*.dof" -or -name "*.lrt" -or -name "*.lfm" -or -name "*.lpr" -or -name "*.bat" -or -name "*.dpr" -or -name "*.lua" -or -name "*.po" -or -name "*.inf" -or -name "*.vcxproj" -or -name "*.c" -or -name "*.cs" -or -name "*.cpp" -or -name "*.dfm" -or -name "*.vcproj" -or -name "*.h" \) -print0 | xargs -0 perl -pi -e 's/cheatengine/weather/g'
+find . -type f \( -name "*.pas" -or -name "*.asm" -or -name "*.txt" -or -name "*.md" -or -name "*.lpi" -or -name "*.lrs" -or -name "*.dof" -or -name "*.lrt" -or -name "*.lfm" -or -name "*.lpr" -or -name "*.bat" -or -name "*.dpr" -or -name "*.lua" -or -name "*.po" -or -name "*.inf" -or -name "*.vcxproj" -or -name "*.c" -or -name "*.cs" -or -name "*.cpp" -or -name "*.dfm" -or -name "*.vcproj" -or -name "*.h" \) -print0 | xargs -0 perl -pi -e 's/celogo/weatherlogo/g'
+find . -type f \( -name "*.pas" -or -name "*.asm" -or -name "*.txt" -or -name "*.md" -or -name "*.lpi" -or -name "*.lrs" -or -name "*.dof" -or -name "*.lrt" -or -name "*.lfm" -or -name "*.lpr" -or -name "*.bat" -or -name "*.dpr" -or -name "*.lua" -or -name "*.po" -or -name "*.inf" -or -name "*.vcxproj" -or -name "*.c" -or -name "*.cs" -or -name "*.cpp" -or -name "*.dfm" -or -name "*.vcproj" -or -name "*.h" \) -print0 | xargs -0 perl -pi -e 's/Weather\ 7.1/Weather/g'
 
 # Return to root folder
 cd ../../
