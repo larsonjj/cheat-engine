@@ -171,7 +171,11 @@ PImageNtHeaders = ^TImageNtHeaders;
 _IMAGE_NT_HEADERS = packed record
   Signature: DWORD;
   FileHeader: TImageFileHeader;
+{$if FPC_FULLVERSION<030200}
   OptionalHeader: TImageOptionalHeader;
+{$else}
+  OptionalHeader: TImageOptionalHeader32;
+{$endif}
 end;
 TImageNtHeaders = _IMAGE_NT_HEADERS;
 IMAGE_NT_HEADERS = _IMAGE_NT_HEADERS;
@@ -360,7 +364,7 @@ begin
   if dh=nil then exit;
 
   if DH^._lfanew>maxsize then exit; //out of range
-  
+
   NTH:=PImageNtHeaders(ptrUint(headerbase)+DH^._lfanew);
   if NTH^.Signature<>IMAGE_NT_SIGNATURE then exit;
 
